@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dev="*res://dev/dev_tools.gd"
 Sfx="*res://scenes/game/sfx.gd"
 Game="*res://scenes/game/game.gd"
 

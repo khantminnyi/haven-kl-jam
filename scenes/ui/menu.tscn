@@ -296,17 +296,19 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 27
-text = "le recoil: made by le ragdoll galore
-zee  /  dan  /  khon
+text = "# credits
 
-music: jerrick
+- le ragdoll galore: zee, dan, khon. music: jerrick.
+- sounds: rubberduck's 100 CC0 SFX, CC0, from OpenGameArt (https://opengameart.org).
+- toy soldiers: team-supplied/edited sheets; original photo source still unconfirmed.
+- mama coco + dog: Pixar's Coco, edited by the team; characters aren't ours.
+- mission passed: Rockstar / GTA. victory royale: Epic / Fortnite. borrowed banners, not original art or licensed by the joke.
+- engine: Godot, MIT. art tools include Pixelorama.
 
-sound effects: 100 CC0 SFX by rubberduck (opengameart.org)
-toy soldiers, lactose guy, mama coco and the dog: edited by the team
-mission passed, victory royale: parody of GTA and Fortnite, made with love
-engine: godot 4 (MIT)
+copyrights are reserved to le ragdoll galore (except mama coco i guess)
 
-made at hack club haven kuala lumpur, nov 2026"
+menu credits are in scenes/ui/menu.tscn.
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
