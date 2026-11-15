@@ -187,7 +187,8 @@ func dev_time(index: int) -> float:
 
 
 func save_ghost(index: int, seconds: float, times: PackedFloat32Array, points: PackedVector2Array) -> void:
-	if not OS.is_debug_build() or times.size() < 2:
+	# only editor playtests can replace the bundled run. exports just replay it.
+	if not OS.has_feature("editor") or times.size() < 2:
 		return
 	var existing := dev_time(index)
 	if existing > 0.0 and seconds >= existing:

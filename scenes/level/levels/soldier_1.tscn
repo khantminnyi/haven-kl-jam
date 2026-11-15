@@ -17,6 +17,9 @@
 script = ExtResource("1")
 level_name = "the trench"
 speaker = "soldier"
+story = PackedStringArray("sarge|fantastic. you've infiltrated the enemy's hideout.", "sarge|you're the last one standing of our platoon.", "sarge|get to the boss quickly and eliminate him.", "soldier|sir yes sir!")
+pan_story = PackedStringArray("sarge|i mapped out the enemy base using a spy cockroach.", "sarge|seems like their boss is a coward, hiding behind all that brick.", "soldier|roger. i'm going in.", "sarge|you've got plenty of 'splosives. press spacebar to use 'em.")
+death_radio = PackedStringArray("sarge: you good?", "sarge: ...", "sarge: soldier? SOLDIER?!")
 music = "res://audio/music/soldier_theme.mp3"
 win_big = "mission passed"
 win_small = "respect +"
