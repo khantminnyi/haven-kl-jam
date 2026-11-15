@@ -13,6 +13,8 @@ const VOICE_ROOT := "res://audio/voice/"
 
 # a stage cue/direction started ("" = back to normal). Level acts it out.
 signal stage(cue: String)
+# a new line started; who is speaking it (the level uses this to point the camera).
+signal line_started(who: String)
 
 const DIRECTION_SECONDS := 2.8
 
@@ -113,6 +115,7 @@ func _start_line() -> void:
 		_direction_left = 0.0
 	Sfx.stop_voice()
 	stage.emit(_cue(_index))
+	line_started.emit(_who(_index))
 	var kind := _kind(_index)
 	if kind == Kind.RADIO:
 		Sfx.play("switch_01", -12.0, 1.6)  # radio click

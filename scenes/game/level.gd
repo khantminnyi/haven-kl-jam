@@ -62,6 +62,9 @@ var _win_card: WinCard
 var _milk: MilkSplash
 var _finale_started := false
 var _dog: StoryDog
+var _fridge: StoryFridge
+var _story_focus := 0.0  # 0 = camera on the character, 1 = on the target (when the cow talks)
+var _story_focus_goal := 0.0
 var _death_card: DeathRadio
 var _post: ShaderMaterial
 var _ambient_node: CanvasModulate
@@ -128,6 +131,12 @@ func _process(delta: float) -> void:
 	_update_cinematic(real_delta)
 	_update_battle(real_delta)
 	match state:
+		State.STORY:
+			# when the cow speaks, the camera visits it, then comes back.
+			_story_focus = move_toward(_story_focus, _story_focus_goal, real_delta * 1.2)
+			var look := smoothstep(0.0, 1.0, _story_focus)
+			cam.override_point = shooter.global_position.lerp(target.global_position, look)
+			cam.override_zoom = lerpf(1.5, cam.base_zoom, look)
 		State.PAN:
 			# over to the target, hold a moment (or until the panels are done), and back.
 			var to_target := smoothstep(0.0, 1.0, _clock) - smoothstep(1.8, 2.6, _clock)
@@ -185,10 +194,24 @@ func _unhandled_input(event: InputEvent) -> void:
 			Game.level_won()
 
 
+func _on_line_started(who: String) -> void:
+	_story_focus_goal = 1.0 if state == State.STORY and who.to_lower() == "cow" else 0.0
+
+
 func _on_stage(cue: String) -> void:
 	if shooter.rig:
 		shooter.rig.back_view = cue.contains("back view")
 		shooter.rig.stained = cue.contains("stain")
+	# while his back is turned he is walking up to the fridge.
+	if cue.contains("back view"):
+		if _fridge == null:
+			_fridge = StoryFridge.new()
+			_fridge.z_index = -1
+			add_child(_fridge)
+			_fridge.global_position = shooter.global_position + Vector2(46, 40)
+	elif _fridge:
+		_fridge.queue_free()
+		_fridge = null
 	if cue.contains("steal") and _dog == null:
 		_dog = StoryDog.new()
 		add_child(_dog)
@@ -201,9 +224,13 @@ func _after_story() -> void:
 		_dog.queue_free()  # the real dog is waiting at the target
 		_dog = null
 		_panel.actor_node = null
+	if _fridge:
+		_fridge.queue_free()
+		_fridge = null
+	_story_focus_goal = 0.0
 	if pan_to_target:
 		state = State.PAN
-		_clock = 0.0
+		_clock = _story_focus  # carry on from where the camera is, so it doesn't jump back first
 		if not pan_story.is_empty():
 			_pan_hold = true
 			_panel.play(speaker, pan_story, _after_pan_story, "pan")
@@ -408,6 +435,7 @@ func _build_hud() -> void:
 	_panel.target_node = target
 	_panel.voice_id = scene_file_path.get_file().get_basename()
 	_panel.stage.connect(_on_stage)
+	_panel.line_started.connect(_on_line_started)
 	_win_card = hud.get_node("WinCard")
 	_milk = hud.get_node("MilkSplash")
 

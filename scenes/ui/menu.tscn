@@ -166,7 +166,7 @@ theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 12
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 150
-text = "le recoil"
+text = "boi oi oing"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -540,6 +540,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 18
-text = "le recoil 1.0 (not minecraft)
+text = "boi oi oing 1.0 (not minecraft)
 made by le ragdoll galore at hack club haven kl 2026 wheee!!"
 autowrap_mode = 2
