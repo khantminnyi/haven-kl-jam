@@ -7,4 +7,6 @@
 - mission passed: Rockstar / GTA. victory royale: Epic / Fortnite. borrowed banners, not original art or licensed by the joke.
 - engine: Godot, MIT. art tools include Pixelorama.
 
+copyrights are reserved to le ragdoll galore (except mama coco i guess)
+
 menu credits are in scenes/ui/menu.tscn.
