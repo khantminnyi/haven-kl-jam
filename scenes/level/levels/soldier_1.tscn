@@ -1,0 +1,370 @@
+[gd_scene format=3 uid="uid://byd3xg5284fbp"]
+
+[ext_resource type="Script" uid="uid://do3osreule3da" path="res://scenes/game/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwavh555082cy" path="res://scenes/level/level_map.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/shooter.tscn" id="3"]
+[ext_resource type="Script" uid="uid://d3515mscoeo72" path="res://scenes/level/block.gd" id="3_v1irh"]
+[ext_resource type="Script" uid="uid://bs0ecqwijw7ey" path="res://scenes/level/target.gd" id="4"]
+[ext_resource type="Script" uid="uid://dravk7tyaonmn" path="res://scenes/level/lamp.gd" id="4_elxwd"]
+[ext_resource type="Script" uid="uid://b86t5228dhw1x" path="res://scenes/game/follow_cam.gd" id="5"]
+[ext_resource type="Script" uid="uid://di5k8pf4ml030" path="res://scenes/level/pickup.gd" id="5_p166x"]
+[ext_resource type="Script" uid="uid://b2nxkybh6e7av" path="res://scenes/level/doodle.gd" id="6_lxn5y"]
+[ext_resource type="Script" uid="uid://bs17qihol2ub7" path="res://scenes/level/enemy.gd" id="7_3ur17"]
+[ext_resource type="Script" uid="uid://bs3xrhsf7j5aj" path="res://scenes/level/sign.gd" id="8_pl1xy"]
+[ext_resource type="Script" uid="uid://bb7wkpkqg6csd" path="res://scenes/player/shooter.gd" id="11_j6kxi"]
+
+[node name="Soldier1" type="Node2D" unique_id=309313187]
+script = ExtResource("1")
+level_name = "the trench"
+speaker = "soldier"
+music = "res://audio/music/soldier_theme.mp3"
+win_big = "mission passed"
+win_small = "respect +"
+win_colour = Color(0.95, 0.77, 0.06, 1)
+win_image = "res://art/ui/gta_mission_passed.png"
+win_width = 820.0
+aim_hint = "shoot the opposite way you want to go"
+battle_flashes = true
+ambient = Color(0.92, 0.82, 0.74, 1)
+player_light = Color(1, 0.8, 0.55, 1)
+background_tint = Color(0.86, 0.46, 0.3, 1)
+grade = Color(1.06, 0.96, 0.86, 1)
+dust = Color(0.25, 0.22, 0.2, 0.55)
+
+[node name="Map" type="Node2D" parent="." unique_id=936449295]
+script = ExtResource("2")
+manual_layout = true
+level_size = Vector2(5120, 2560)
+lamp_colour = Color(1, 0.6, 0.3, 1)
+power_icon = "ammo"
+signs = PackedStringArray("shoot left to go right", "green stuff is sticky. you can stop on it", "brick wall. press space to throw a grenade")
+map = "################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+#####################################..........*............*.........BBB..*...#
+#####################################.................................BBB......#
+#####################################.................................BBB......#
+#####################################...............p...c...........c.BBB......#
+#####################################.......................c.........BBB......#
+#####################################.........................XX......BBB......#
+####################################K..........d..e.d..e...e..XX.3...dBBB..Td..#
+####################################K.......######################^^############
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K...c...K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K...c...K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+####################################K.......K###################################
+##........*.............*.........*.........K###################################
+##..........................................K###################################
+##..........................................K###################################
+##..........c...............................K###################################
+##.......................c..................K###################################
+##..........................d...............K###################################
+##.................d........................K###################################
+##..S...1..d....e....e....e....e..2.....d...K###################################
+################################################################################
+################################################################################
+################################################################################"
+
+[node name="Block1" type="StaticBody2D" parent="Map" unique_id=1527002558]
+position = Vector2(2560, 256)
+script = ExtResource("3_v1irh")
+size = Vector2(5120, 512)
+theme = "dirt"
+
+[node name="Block2" type="StaticBody2D" parent="Map" unique_id=1779232390]
+position = Vector2(1184, 704)
+script = ExtResource("3_v1irh")
+size = Vector2(2368, 384)
+theme = "dirt"
+
+[node name="Block3" type="StaticBody2D" parent="Map" unique_id=130436767]
+position = Vector2(5088, 736)
+script = ExtResource("3_v1irh")
+size = Vector2(64, 448)
+theme = "dirt"
+
+[node name="Block4" type="StaticBody2D" parent="Map" unique_id=141402950]
+position = Vector2(3520, 992)
+script = ExtResource("3_v1irh")
+size = Vector2(1408, 64)
+theme = "dirt"
+
+[node name="Block5" type="StaticBody2D" parent="Map" unique_id=282223498]
+position = Vector2(4736, 992)
+script = ExtResource("3_v1irh")
+size = Vector2(768, 64)
+theme = "dirt"
+
+[node name="Block6" type="StaticBody2D" parent="Map" unique_id=1723999055]
+position = Vector2(1152, 1376)
+script = ExtResource("3_v1irh")
+size = Vector2(2304, 960)
+theme = "dirt"
+
+[node name="Block7" type="StaticBody2D" parent="Map" unique_id=1624031580]
+position = Vector2(4000, 1696)
+script = ExtResource("3_v1irh")
+size = Vector2(2240, 1344)
+theme = "dirt"
+
+[node name="Block8" type="StaticBody2D" parent="Map" unique_id=1882684500]
+position = Vector2(64, 2112)
+script = ExtResource("3_v1irh")
+size = Vector2(128, 512)
+theme = "dirt"
+
+[node name="Block9" type="StaticBody2D" parent="Map" unique_id=575348672]
+position = Vector2(2560, 2464)
+script = ExtResource("3_v1irh")
+size = Vector2(5120, 192)
+theme = "dirt"
+
+[node name="Block10" type="StaticBody2D" parent="Map" unique_id=1181182540]
+position = Vector2(4576, 736)
+script = ExtResource("3_v1irh")
+kind = 1
+size = Vector2(192, 448)
+theme = "dirt"
+
+[node name="Block11" type="StaticBody2D" parent="Map" unique_id=827896828]
+position = Vector2(4288, 992)
+script = ExtResource("3_v1irh")
+kind = 3
+size = Vector2(128, 64)
+theme = "dirt"
+
+[node name="Block12" type="StaticBody2D" parent="Map" unique_id=64014088]
+position = Vector2(4032, 896)
+script = ExtResource("3_v1irh")
+kind = 4
+size = Vector2(128, 128)
+theme = "dirt"
+
+[node name="Block13" type="StaticBody2D" parent="Map" unique_id=877885154]
+position = Vector2(2336, 1376)
+script = ExtResource("3_v1irh")
+kind = 7
+size = Vector2(64, 960)
+theme = "dirt"
+
+[node name="Block14" type="StaticBody2D" parent="Map" unique_id=1346600970]
+position = Vector2(2848, 1696)
+script = ExtResource("3_v1irh")
+kind = 7
+size = Vector2(64, 1344)
+theme = "dirt"
+
+[node name="Lamp1" type="Node2D" parent="Map" unique_id=176144366]
+position = Vector2(3040, 544)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Lamp2" type="Node2D" parent="Map" unique_id=1999154239]
+position = Vector2(3872, 544)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Lamp3" type="Node2D" parent="Map" unique_id=213792695]
+position = Vector2(4832, 544)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Pickup1" type="Area2D" parent="Map" unique_id=480934167]
+position = Vector2(3360, 736)
+script = ExtResource("5_p166x")
+kind = 1
+icon = "ammo"
+
+[node name="Pickup2" type="Area2D" parent="Map" unique_id=1045420348]
+position = Vector2(3616, 736)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Pickup3" type="Area2D" parent="Map" unique_id=377131539]
+position = Vector2(4384, 736)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Pickup4" type="Area2D" parent="Map" unique_id=343697931]
+position = Vector2(3872, 800)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Doodle1" type="Node2D" parent="Map" unique_id=1674595356]
+z_index = -1
+position = Vector2(3040, 928)
+script = ExtResource("6_lxn5y")
+pick = 155
+
+[node name="Enemy1" type="Area2D" parent="Map" unique_id=1308783322]
+position = Vector2(3232, 930)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Doodle2" type="Node2D" parent="Map" unique_id=436215044]
+z_index = -1
+position = Vector2(3360, 928)
+script = ExtResource("6_lxn5y")
+pick = 170
+
+[node name="Enemy2" type="Area2D" parent="Map" unique_id=1447651020]
+position = Vector2(3552, 930)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Enemy3" type="Area2D" parent="Map" unique_id=578935971]
+position = Vector2(3808, 930)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Sign1" type="Node2D" parent="Map" unique_id=1834730992]
+z_index = 5
+position = Vector2(4192, 928)
+script = ExtResource("8_pl1xy")
+text = "brick wall. press space to throw a grenade"
+
+[node name="Doodle3" type="Node2D" parent="Map" unique_id=62255021]
+z_index = -1
+position = Vector2(4448, 928)
+script = ExtResource("6_lxn5y")
+pick = 221
+
+[node name="Doodle4" type="Node2D" parent="Map" unique_id=729196954]
+z_index = -1
+position = Vector2(4896, 928)
+script = ExtResource("6_lxn5y")
+pick = 242
+
+[node name="Pickup5" type="Area2D" parent="Map" unique_id=752858153]
+position = Vector2(2592, 1248)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Pickup6" type="Area2D" parent="Map" unique_id=1546626126]
+position = Vector2(2592, 1632)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Lamp4" type="Node2D" parent="Map" unique_id=307836557]
+position = Vector2(672, 1888)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Lamp5" type="Node2D" parent="Map" unique_id=378366455]
+position = Vector2(1568, 1888)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Lamp6" type="Node2D" parent="Map" unique_id=1830032628]
+position = Vector2(2208, 1888)
+script = ExtResource("4_elxwd")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Pickup7" type="Area2D" parent="Map" unique_id=1874635132]
+position = Vector2(800, 2080)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Pickup8" type="Area2D" parent="Map" unique_id=639813785]
+position = Vector2(1632, 2144)
+script = ExtResource("5_p166x")
+icon = "ammo"
+
+[node name="Doodle5" type="Node2D" parent="Map" unique_id=1309453927]
+z_index = -1
+position = Vector2(1824, 2208)
+script = ExtResource("6_lxn5y")
+pick = 118
+
+[node name="Doodle6" type="Node2D" parent="Map" unique_id=919283271]
+z_index = -1
+position = Vector2(1248, 2272)
+script = ExtResource("6_lxn5y")
+pick = 92
+
+[node name="Sign2" type="Node2D" parent="Map" unique_id=1307097987]
+z_index = 5
+position = Vector2(544, 2336)
+script = ExtResource("8_pl1xy")
+text = "shoot left to go right"
+
+[node name="Doodle7" type="Node2D" parent="Map" unique_id=1400244376]
+z_index = -1
+position = Vector2(736, 2336)
+script = ExtResource("6_lxn5y")
+pick = 69
+
+[node name="Enemy4" type="Area2D" parent="Map" unique_id=1680261821]
+position = Vector2(1056, 2338)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Enemy5" type="Area2D" parent="Map" unique_id=680118731]
+position = Vector2(1376, 2338)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Enemy6" type="Area2D" parent="Map" unique_id=1431386312]
+position = Vector2(1696, 2338)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Enemy7" type="Area2D" parent="Map" unique_id=265390811]
+position = Vector2(2016, 2338)
+collision_layer = 2
+script = ExtResource("7_3ur17")
+style = 1
+radius = 30.0
+
+[node name="Sign3" type="Node2D" parent="Map" unique_id=1208086656]
+z_index = 5
+position = Vector2(2208, 2336)
+script = ExtResource("8_pl1xy")
+text = "green stuff is sticky. you can stop on it"
+
+[node name="Doodle8" type="Node2D" parent="Map" unique_id=1674786220]
+z_index = -1
+position = Vector2(2592, 2336)
+script = ExtResource("6_lxn5y")
+pick = 156
+
+[node name="Target" type="Area2D" parent="." unique_id=1455669196]
+position = Vector2(4832, 928)
+script = ExtResource("4")
+style = 1
+radius = 40.0
+
+[node name="Shooter" type="CharacterBody2D" parent="." unique_id=1385669501 instance=ExtResource("3")]
+position = Vector2(288, 2350)
+script = ExtResource("11_j6kxi")
+
+[node name="Cam" type="Camera2D" parent="." unique_id=1281738740]
+script = ExtResource("5")
+
+[editable path="Shooter"]

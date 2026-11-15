@@ -1,0 +1,518 @@
+[gd_scene format=3 uid="uid://due4jigocmdqq"]
+
+[ext_resource type="Script" uid="uid://do3osreule3da" path="res://scenes/game/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwavh555082cy" path="res://scenes/level/level_map.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/shooter.tscn" id="3"]
+[ext_resource type="Script" uid="uid://d3515mscoeo72" path="res://scenes/level/block.gd" id="3_2ihxg"]
+[ext_resource type="Script" uid="uid://bs0ecqwijw7ey" path="res://scenes/level/target.gd" id="4"]
+[ext_resource type="Script" uid="uid://b2nxkybh6e7av" path="res://scenes/level/doodle.gd" id="4_eh70l"]
+[ext_resource type="Script" uid="uid://b86t5228dhw1x" path="res://scenes/game/follow_cam.gd" id="5"]
+[ext_resource type="Script" uid="uid://bs3xrhsf7j5aj" path="res://scenes/level/sign.gd" id="5_m3sp5"]
+[ext_resource type="Texture2D" uid="uid://bs7j56y0d0t5b" path="res://art/sprites/grandma/target.png" id="6"]
+[ext_resource type="Script" uid="uid://di5k8pf4ml030" path="res://scenes/level/pickup.gd" id="6_fd4nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y7xs"]
+size = Vector2(3584, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ihxg"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh70l"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3sp5"]
+size = Vector2(576, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4nj"]
+size = Vector2(128, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g68g"]
+size = Vector2(128, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhl7o"]
+size = Vector2(128, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rykbn"]
+size = Vector2(64, 1344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x7d3"]
+size = Vector2(125.335, 897.705)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdysf"]
+size = Vector2(128, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sdb8"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uh7p2"]
+size = Vector2(512, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvtac"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1604i"]
+size = Vector2(64, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ym0o"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbii"]
+size = Vector2(3584, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hns4"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t8hq"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxoua"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1seb"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntj8l"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hduh0"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhifi"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd871"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jo3o"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr1rc"]
+size = Vector2(3456, 64)
+
+[node name="Grandma1" type="Node2D" unique_id=1702647666]
+script = ExtResource("1")
+level_name = "grandma vs the dog"
+speaker = "mama coco"
+music = "res://audio/music/coco_theme.mp3"
+win_big = "victory royale"
+win_small = "#1"
+win_colour = Color(0.98, 0.84, 0.11, 1)
+win_image = "res://art/ui/victory_royale_sheet.png"
+win_frames = Vector2i(5, 5)
+win_frame_count = 25
+win_width = 380.0
+aim_hint = "shoot the opposite way you want to go"
+ambient = Color(0.78, 0.84, 1, 1)
+player_light = Color(1, 0.9, 0.7, 1)
+background_tint = Color(0.3, 0.42, 0.85, 1)
+grade = Color(0.96, 1, 1.08, 1)
+dust = Color(0.85, 1, 0.45, 0.8)
+
+[node name="Map" type="Node2D" parent="." unique_id=354283552]
+script = ExtResource("2")
+manual_layout = true
+level_size = Vector2(3584, 1792)
+theme = "grass"
+lamp_colour = Color(1, 0.85, 0.55, 1)
+pillows = true
+power_icon = "tea"
+signs = PackedStringArray("hold space or right mouse to glide. you sink slowly", "hold to float, let go to drop. line up with the gap", "pink gap edges are pillows, they never hurt")
+map = "########################################################
+########################################################
+########################################################
+#.............##........##........##........##.........#
+#..S.d1.......##........##........##........##.........#
+#########.....OO........##........##........##.........#
+#########...............##........##........##.........#
+#..................c....##........##........##.........#
+#.............c.........##........##........##.........#
+#..................2....##........##........##.........#
+#.......................##........##........##.........#
+#.............OO........OO........##........##.........#
+#.............##..................##........##.........#
+#.............##..................##........##.........#
+#.............##........c....3....##........##.........#
+#.............##..............p...##........##.........#
+#.............##..................OO........##.........#
+#.............##........OO..................##.........#
+#.............##........##.............c....##.........#
+#.............##........##........c.........OO.........#
+#.............##........##.............................#
+#.............##........##..................c..........#
+#.............##........##........OO...................#
+#.............##........##........##.............d.Td..#
+#.............##........##........##........OO.O########
+#.............##........##........##........##.O########
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#
+########################################################"
+
+[node name="Block1" type="StaticBody2D" parent="Map" unique_id=2130714804]
+position = Vector2(1792, 96)
+script = ExtResource("3_2ihxg")
+size = Vector2(3584, 192)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block1" unique_id=1747679798]
+shape = SubResource("RectangleShape2D_8y7xs")
+
+[node name="Block2" type="StaticBody2D" parent="Map" unique_id=1478099910]
+position = Vector2(32, 256)
+script = ExtResource("3_2ihxg")
+size = Vector2(64, 128)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block2" unique_id=485018547]
+shape = SubResource("RectangleShape2D_2ihxg")
+
+[node name="Block3" type="StaticBody2D" parent="Map" unique_id=1316142310]
+position = Vector2(960, 256)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 128)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block3" unique_id=2012173392]
+shape = SubResource("RectangleShape2D_eh70l")
+
+[node name="Block4" type="StaticBody2D" parent="Map" unique_id=498871643]
+position = Vector2(288, 384)
+script = ExtResource("3_2ihxg")
+size = Vector2(576, 128)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block4" unique_id=125079313]
+shape = SubResource("RectangleShape2D_m3sp5")
+
+[node name="Block5" type="StaticBody2D" parent="Map" unique_id=1344344370]
+position = Vector2(1600, 448)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 512)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block5" unique_id=1820048683]
+shape = SubResource("RectangleShape2D_fd4nj")
+
+[node name="Block6" type="StaticBody2D" parent="Map" unique_id=1019310132]
+position = Vector2(2240, 608)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 832)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block6" unique_id=1232400280]
+shape = SubResource("RectangleShape2D_0g68g")
+
+[node name="Block7" type="StaticBody2D" parent="Map" unique_id=1847645036]
+position = Vector2(2880, 704)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 1024)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block7" unique_id=1934411114]
+shape = SubResource("RectangleShape2D_vhl7o")
+
+[node name="Block8" type="StaticBody2D" parent="Map" unique_id=1500822220]
+position = Vector2(3552, 864)
+script = ExtResource("3_2ihxg")
+size = Vector2(64, 1344)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block8" unique_id=2099049415]
+shape = SubResource("RectangleShape2D_rykbn")
+
+[node name="Block9" type="StaticBody2D" parent="Map" unique_id=1385900603]
+position = Vector2(960, 1216)
+script = ExtResource("3_2ihxg")
+size = Vector2(125.335, 897.705)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block9" unique_id=1029518604]
+shape = SubResource("RectangleShape2D_0x7d3")
+
+[node name="Block10" type="StaticBody2D" parent="Map" unique_id=1593819074]
+position = Vector2(1600, 1408)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 512)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block10" unique_id=1123355386]
+shape = SubResource("RectangleShape2D_jdysf")
+
+[node name="Block11" type="StaticBody2D" parent="Map" unique_id=1973960739]
+position = Vector2(2240, 1568)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 192)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block11" unique_id=1667665627]
+shape = SubResource("RectangleShape2D_8sdb8")
+
+[node name="Block12" type="StaticBody2D" parent="Map" unique_id=1032171806]
+position = Vector2(3328, 1600)
+script = ExtResource("3_2ihxg")
+size = Vector2(512, 128)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block12" unique_id=1321910877]
+shape = SubResource("RectangleShape2D_uh7p2")
+
+[node name="Block13" type="StaticBody2D" parent="Map" unique_id=1114378044]
+position = Vector2(2880, 1632)
+script = ExtResource("3_2ihxg")
+size = Vector2(128, 64)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block13" unique_id=2008825339]
+shape = SubResource("RectangleShape2D_xvtac")
+
+[node name="Block14" type="StaticBody2D" parent="Map" unique_id=801060045]
+position = Vector2(32, 1088)
+script = ExtResource("3_2ihxg")
+size = Vector2(64, 1280)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block14" unique_id=1768186692]
+shape = SubResource("RectangleShape2D_1604i")
+
+[node name="Block15" type="StaticBody2D" parent="Map" unique_id=1201368994]
+position = Vector2(3552, 1696)
+script = ExtResource("3_2ihxg")
+size = Vector2(64, 64)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block15" unique_id=912127538]
+shape = SubResource("RectangleShape2D_8ym0o")
+
+[node name="Block16" type="StaticBody2D" parent="Map" unique_id=923515762]
+position = Vector2(1792, 1760)
+script = ExtResource("3_2ihxg")
+size = Vector2(3584, 64)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block16" unique_id=1543974857]
+shape = SubResource("RectangleShape2D_ihbii")
+
+[node name="Block17" type="StaticBody2D" parent="Map" unique_id=234053859]
+position = Vector2(960, 352)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block17" unique_id=955692104]
+shape = SubResource("RectangleShape2D_6hns4")
+
+[node name="Block18" type="StaticBody2D" parent="Map" unique_id=1547263049]
+position = Vector2(960, 736)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block18" unique_id=868837873]
+shape = SubResource("RectangleShape2D_4t8hq")
+
+[node name="Block19" type="StaticBody2D" parent="Map" unique_id=862669871]
+position = Vector2(1600, 736)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block19" unique_id=1387327413]
+shape = SubResource("RectangleShape2D_cxoua")
+
+[node name="Block20" type="StaticBody2D" parent="Map" unique_id=930816599]
+position = Vector2(2240, 1056)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block20" unique_id=920465887]
+shape = SubResource("RectangleShape2D_s1seb")
+
+[node name="Block21" type="StaticBody2D" parent="Map" unique_id=1617630867]
+position = Vector2(1600, 1120)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block21" unique_id=918984083]
+shape = SubResource("RectangleShape2D_ntj8l")
+
+[node name="Block22" type="StaticBody2D" parent="Map" unique_id=1334427068]
+position = Vector2(2880, 1248)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block22" unique_id=1887295877]
+shape = SubResource("RectangleShape2D_hduh0")
+
+[node name="Block23" type="StaticBody2D" parent="Map" unique_id=1889079140]
+position = Vector2(2240, 1440)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block23" unique_id=1826441183]
+shape = SubResource("RectangleShape2D_lhifi")
+
+[node name="Block24" type="StaticBody2D" parent="Map" unique_id=1986237225]
+position = Vector2(2880, 1568)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(128, 64)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block24" unique_id=805094825]
+shape = SubResource("RectangleShape2D_pd871")
+
+[node name="Block25" type="StaticBody2D" parent="Map" unique_id=1657359764]
+position = Vector2(3040, 1600)
+script = ExtResource("3_2ihxg")
+kind = 2
+size = Vector2(64, 128)
+theme = "grass"
+soft = true
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block25" unique_id=649331165]
+shape = SubResource("RectangleShape2D_0jo3o")
+
+[node name="Block26" type="StaticBody2D" parent="Map" unique_id=1815526083]
+position = Vector2(1792, 1696)
+script = ExtResource("3_2ihxg")
+kind = 3
+size = Vector2(3456, 64)
+theme = "grass"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block26" unique_id=787493140]
+shape = SubResource("RectangleShape2D_xr1rc")
+
+[node name="Doodle1" type="Node2D" parent="Map" unique_id=1728779245]
+z_index = -1
+position = Vector2(352, 288)
+script = ExtResource("4_eh70l")
+theme = "grass"
+pick = 19
+
+[node name="Sign1" type="Node2D" parent="Map" unique_id=1156666528]
+z_index = 5
+position = Vector2(714, 267)
+script = ExtResource("5_m3sp5")
+text = "hold space or right mouse to glide - like jett from valorant!"
+
+[node name="Pickup1" type="Area2D" parent="Map" unique_id=787149462]
+position = Vector2(1248, 480)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Pickup2" type="Area2D" parent="Map" unique_id=434207985]
+position = Vector2(928, 544)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Sign2" type="Node2D" parent="Map" unique_id=905287579]
+z_index = 5
+position = Vector2(1248, 608)
+script = ExtResource("5_m3sp5")
+text = "try to control your glide to land safetly"
+
+[node name="Pickup3" type="Area2D" parent="Map" unique_id=2048945688]
+position = Vector2(1568, 928)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Sign3" type="Node2D" parent="Map" unique_id=596218924]
+z_index = 5
+position = Vector2(2022, 1427)
+script = ExtResource("5_m3sp5")
+text = "these are pillows. they wont hurt u -->"
+
+[node name="Pickup4" type="Area2D" parent="Map" unique_id=1792763428]
+position = Vector2(1952, 992)
+script = ExtResource("6_fd4nj")
+kind = 1
+icon = "tea"
+
+[node name="Pickup5" type="Area2D" parent="Map" unique_id=336310816]
+position = Vector2(2528, 1184)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Pickup6" type="Area2D" parent="Map" unique_id=931720275]
+position = Vector2(2208, 1248)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Pickup7" type="Area2D" parent="Map" unique_id=665428667]
+position = Vector2(2848, 1376)
+script = ExtResource("6_fd4nj")
+icon = "tea"
+
+[node name="Doodle2" type="Node2D" parent="Map" unique_id=1639934765]
+z_index = -1
+position = Vector2(3168, 1504)
+script = ExtResource("4_eh70l")
+theme = "grass"
+pick = 170
+
+[node name="Doodle3" type="Node2D" parent="Map" unique_id=385878773]
+z_index = -1
+position = Vector2(3360, 1504)
+script = ExtResource("4_eh70l")
+theme = "grass"
+pick = 179
+
+[node name="Target" type="Area2D" parent="." unique_id=452802711]
+position = Vector2(3296, 1481)
+script = ExtResource("4")
+radius = 40.0
+picture = ExtResource("6")
+
+[node name="Shooter" parent="." unique_id=2082490244 instance=ExtResource("3")]
+position = Vector2(224, 302)
+
+[node name="Rig" parent="Shooter" index="0"]
+look = 2
+
+[node name="Cam" type="Camera2D" parent="." unique_id=309464218]
+script = ExtResource("5")
+
+[editable path="Shooter"]

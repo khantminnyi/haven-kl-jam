@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://c7omrjy5xnwqv"]
+
+[ext_resource type="Script" uid="uid://do3osreule3da" path="res://scenes/game/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwavh555082cy" path="res://scenes/level/level_map.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/shooter.tscn" id="3"]
+[ext_resource type="Script" uid="uid://d3515mscoeo72" path="res://scenes/level/block.gd" id="3_2krrg"]
+[ext_resource type="Script" uid="uid://bs0ecqwijw7ey" path="res://scenes/level/target.gd" id="4"]
+[ext_resource type="Script" uid="uid://dravk7tyaonmn" path="res://scenes/level/lamp.gd" id="4_l6fcb"]
+[ext_resource type="Script" uid="uid://b86t5228dhw1x" path="res://scenes/game/follow_cam.gd" id="5"]
+[ext_resource type="Script" uid="uid://di5k8pf4ml030" path="res://scenes/level/pickup.gd" id="5_utpwn"]
+[ext_resource type="Script" uid="uid://b2nxkybh6e7av" path="res://scenes/level/doodle.gd" id="6_gaplt"]
+[ext_resource type="Script" uid="uid://bb7wkpkqg6csd" path="res://scenes/player/shooter.gd" id="9_1mq3s"]
+
+[node name="Tutorial" type="Node2D" unique_id=1302059716]
+script = ExtResource("1")
+level_name = "basic training"
+speaker = "sarge"
+aim_hint = "drag on the soldier to aim. let go to shoot"
+pan_to_target = false
+tutorial = true
+battle_flashes = true
+ambient = Color(0.92, 0.82, 0.74, 1)
+player_light = Color(1, 0.8, 0.55, 1)
+background_tint = Color(0.86, 0.46, 0.3, 1)
+grade = Color(1.06, 0.96, 0.86, 1)
+dust = Color(0.25, 0.22, 0.2, 0.55)
+
+[node name="Map" type="Node2D" parent="." unique_id=275230750]
+script = ExtResource("2")
+manual_layout = true
+lamp_colour = Color(1, 0.6, 0.3, 1)
+signs = PackedStringArray()
+map = "####################################
+####################################
+####################################
+####################################
+####################################
+###.............................####
+###.....*................*......####
+###.............................####
+###.............................####
+###............c................####
+###..........c...c...T..........####
+###..d...S................d..d..####
+####################################
+####################################"
+
+[node name="Block1" type="StaticBody2D" parent="Map" unique_id=1324448714]
+position = Vector2(1152, 160)
+script = ExtResource("3_2krrg")
+size = Vector2(2304, 320)
+theme = "dirt"
+
+[node name="Block2" type="StaticBody2D" parent="Map" unique_id=157807368]
+position = Vector2(96, 544)
+script = ExtResource("3_2krrg")
+size = Vector2(192, 448)
+theme = "dirt"
+
+[node name="Block3" type="StaticBody2D" parent="Map" unique_id=2124855085]
+position = Vector2(2176, 544)
+script = ExtResource("3_2krrg")
+size = Vector2(256, 448)
+theme = "dirt"
+
+[node name="Block4" type="StaticBody2D" parent="Map" unique_id=662797941]
+position = Vector2(1152, 832)
+script = ExtResource("3_2krrg")
+size = Vector2(2304, 128)
+theme = "dirt"
+
+[node name="Lamp1" type="Node2D" parent="Map" unique_id=1030008468]
+position = Vector2(544, 416)
+script = ExtResource("4_l6fcb")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Lamp2" type="Node2D" parent="Map" unique_id=1613848271]
+position = Vector2(1632, 416)
+script = ExtResource("4_l6fcb")
+colour = Color(1, 0.6, 0.3, 1)
+
+[node name="Pickup1" type="Area2D" parent="Map" unique_id=251557726]
+position = Vector2(992, 608)
+script = ExtResource("5_utpwn")
+
+[node name="Pickup2" type="Area2D" parent="Map" unique_id=909842717]
+position = Vector2(864, 672)
+script = ExtResource("5_utpwn")
+
+[node name="Pickup3" type="Area2D" parent="Map" unique_id=2015919228]
+position = Vector2(1120, 672)
+script = ExtResource("5_utpwn")
+
+[node name="Doodle1" type="Node2D" parent="Map" unique_id=373530867]
+z_index = -1
+position = Vector2(352, 736)
+script = ExtResource("6_gaplt")
+pick = 26
+
+[node name="Doodle2" type="Node2D" parent="Map" unique_id=1465077114]
+z_index = -1
+position = Vector2(1696, 736)
+script = ExtResource("6_gaplt")
+pick = 89
+
+[node name="Doodle3" type="Node2D" parent="Map" unique_id=1324871065]
+z_index = -1
+position = Vector2(1888, 736)
+script = ExtResource("6_gaplt")
+pick = 98
+
+[node name="Target" type="Area2D" parent="." unique_id=1158856593]
+position = Vector2(1376, 672)
+script = ExtResource("4")
+radius = 46.0
+
+[node name="Shooter" type="CharacterBody2D" parent="." unique_id=1827244325 instance=ExtResource("3")]
+position = Vector2(608, 750)
+script = ExtResource("9_1mq3s")
+
+[node name="Cam" type="Camera2D" parent="." unique_id=576157551]
+script = ExtResource("5")
+
+[editable path="Shooter"]

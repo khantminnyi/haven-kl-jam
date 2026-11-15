@@ -1,0 +1,34 @@
+# engine cache + exports
+.godot/
+Godot/
+build/
+*.tmp
+*.log
+export_credentials.cfg
+
+# local tools, drafts and captures
+.logs/
+shots/
+sketches/
+plans/
+setup/
+tools/
+SYNC.md
+art/STYLE.md
+art/gen/
+
+# editor / machine config
+.vscode/
+.idea/
+.claude/
+.agents/
+.codex/
+.mcp.json
+CLAUDE.md
+AGENTS.md
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,457 @@
+[gd_scene format=3 uid="uid://dqr8wnp6lopwk"]
+
+[ext_resource type="Script" uid="uid://do3osreule3da" path="res://scenes/game/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwavh555082cy" path="res://scenes/level/level_map.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/shooter.tscn" id="3"]
+[ext_resource type="Script" uid="uid://d3515mscoeo72" path="res://scenes/level/block.gd" id="3_1ybj5"]
+[ext_resource type="Script" uid="uid://bs0ecqwijw7ey" path="res://scenes/level/target.gd" id="4"]
+[ext_resource type="Script" uid="uid://cdpi3h73kcv58" path="res://scenes/level/no_sling_zone.gd" id="4_jm6se"]
+[ext_resource type="Script" uid="uid://b86t5228dhw1x" path="res://scenes/game/follow_cam.gd" id="5"]
+[ext_resource type="Script" uid="uid://dravk7tyaonmn" path="res://scenes/level/lamp.gd" id="5_6ppq3"]
+[ext_resource type="Texture2D" uid="uid://dfobcbqh33cvm" path="res://art/sprites/cow.png" id="6"]
+[ext_resource type="Script" uid="uid://b2nxkybh6e7av" path="res://scenes/level/doodle.gd" id="6_xeobf"]
+[ext_resource type="Script" uid="uid://di5k8pf4ml030" path="res://scenes/level/pickup.gd" id="7_6r4cw"]
+[ext_resource type="Script" uid="uid://bs3xrhsf7j5aj" path="res://scenes/level/sign.gd" id="8_wro6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4bip"]
+size = Vector2(2304, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ybj5"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm6se"]
+size = Vector2(640, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ppq3"]
+size = Vector2(64, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeobf"]
+size = Vector2(640, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r4cw"]
+size = Vector2(64, 1536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wro6j"]
+size = Vector2(704, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fy74"]
+size = Vector2(64, 1152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxofn"]
+size = Vector2(1024, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61nlx"]
+size = Vector2(64, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nklv3"]
+size = Vector2(64, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rasi5"]
+size = Vector2(896, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dtey"]
+size = Vector2(384, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe6hy"]
+size = Vector2(512, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v472h"]
+size = Vector2(2304, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2pem"]
+size = Vector2(832, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8o3p"]
+size = Vector2(256, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nafs"]
+size = Vector2(256, 64)
+
+[node name="Lactose1" type="Node2D" unique_id=780837554]
+script = ExtResource("1")
+level_name = "lactose intolerant"
+speaker = "lactose guy"
+music = "res://audio/music/lactose_theme.mp3"
+win_big = "MILK SECURED"
+win_colour = Color(0.2, 0.56, 0.85, 1)
+milk_finale = true
+aim_hint = "aim the other end"
+ambient = Color(1, 0.97, 0.9, 1)
+player_light = Color(1, 0.95, 0.8, 1)
+background_tint = Color(0.45, 0.78, 0.74, 1)
+grade = Color(1.03, 1.01, 0.94, 1)
+dust = Color(0.6, 0.8, 0.25, 0.5)
+
+[node name="Map" type="Node2D" parent="." unique_id=371927454]
+script = ExtResource("2")
+manual_layout = true
+level_size = Vector2(2304, 2816)
+theme = "snow"
+lamp_colour = Color(1, 0.95, 0.75, 1)
+no_zone_label = "no farting"
+power_icon = "cheese"
+signs = PackedStringArray("hold space to keep farting. aim down to fly up", "red zone: no farting and no slinging. carry your speed through it", "shoot the tnt roof, then fart up through the hole")
+map = "####################################
+####################################
+####################################
+#.....*...........*...........*....#
+#...........................d.T....#
+#.........................##########
+#..................................#
+#..................................#
+#..................................#
+#.....................XXXXXXXXXXXXX#
+#.....................XXXXXXXXXXXXX#
+#..................................#
+#.............................c....#
+#...........................3...d..#
+#.........................##########
+#.............c...........##########
+#......................p...........#
+#..................................#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..2..d....nnnnnnnnnnnnnnnnnn......#
+###########nnnnnnnnnnnnnnnnnn......#
+###########nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#..........nnnnnnnnnnnnnnnnnn......#
+#.......................d.....d....#
+#...................################
+#...c...............################
+#........c.........................#
+#..................................#
+#..................................#
+#..................................#
+#..S..1..d...........d.........d...#
+##############LLLL######LLLL########
+####################################
+####################################"
+
+[node name="Block1" type="StaticBody2D" parent="Map" unique_id=678689057]
+position = Vector2(1152, 96)
+script = ExtResource("3_1ybj5")
+size = Vector2(2304, 192)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block1" unique_id=142277600]
+shape = SubResource("RectangleShape2D_k4bip")
+
+[node name="Block2" type="StaticBody2D" parent="Map" unique_id=726668582]
+position = Vector2(2272, 256)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block2" unique_id=1855611444]
+shape = SubResource("RectangleShape2D_1ybj5")
+
+[node name="Block3" type="StaticBody2D" parent="Map" unique_id=1243822259]
+position = Vector2(1984, 352)
+script = ExtResource("3_1ybj5")
+size = Vector2(640, 64)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block3" unique_id=184875836]
+shape = SubResource("RectangleShape2D_jm6se")
+
+[node name="Block4" type="StaticBody2D" parent="Map" unique_id=1156399904]
+position = Vector2(2272, 640)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 512)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block4" unique_id=1426678120]
+shape = SubResource("RectangleShape2D_6ppq3")
+
+[node name="Block5" type="StaticBody2D" parent="Map" unique_id=540012159]
+position = Vector2(1984, 960)
+script = ExtResource("3_1ybj5")
+size = Vector2(640, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block5" unique_id=1229015702]
+shape = SubResource("RectangleShape2D_xeobf")
+
+[node name="Block6" type="StaticBody2D" parent="Map" unique_id=368591902]
+position = Vector2(32, 960)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 1536)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block6" unique_id=1242137455]
+shape = SubResource("RectangleShape2D_6r4cw")
+
+[node name="Block7" type="StaticBody2D" parent="Map" unique_id=553903478]
+position = Vector2(352, 1792)
+script = ExtResource("3_1ybj5")
+size = Vector2(704, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block7" unique_id=717682440]
+shape = SubResource("RectangleShape2D_wro6j")
+
+[node name="Block8" type="StaticBody2D" parent="Map" unique_id=992728504]
+position = Vector2(2272, 1600)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 1152)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block8" unique_id=132902457]
+shape = SubResource("RectangleShape2D_0fy74")
+
+[node name="Block9" type="StaticBody2D" parent="Map" unique_id=220835816]
+position = Vector2(1792, 2240)
+script = ExtResource("3_1ybj5")
+size = Vector2(1024, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block9" unique_id=1171197104]
+shape = SubResource("RectangleShape2D_wxofn")
+
+[node name="Block10" type="StaticBody2D" parent="Map" unique_id=1349336037]
+position = Vector2(32, 2240)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 768)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block10" unique_id=1044164489]
+shape = SubResource("RectangleShape2D_61nlx")
+
+[node name="Block11" type="StaticBody2D" parent="Map" unique_id=62716238]
+position = Vector2(2272, 2464)
+script = ExtResource("3_1ybj5")
+size = Vector2(64, 320)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block11" unique_id=1328963821]
+shape = SubResource("RectangleShape2D_nklv3")
+
+[node name="Block12" type="StaticBody2D" parent="Map" unique_id=270717155]
+position = Vector2(448, 2656)
+script = ExtResource("3_1ybj5")
+size = Vector2(896, 64)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block12" unique_id=424587012]
+shape = SubResource("RectangleShape2D_rasi5")
+
+[node name="Block13" type="StaticBody2D" parent="Map" unique_id=787555489]
+position = Vector2(1344, 2656)
+script = ExtResource("3_1ybj5")
+size = Vector2(384, 64)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block13" unique_id=92982455]
+shape = SubResource("RectangleShape2D_5dtey")
+
+[node name="Block14" type="StaticBody2D" parent="Map" unique_id=104519056]
+position = Vector2(2048, 2656)
+script = ExtResource("3_1ybj5")
+size = Vector2(512, 64)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block14" unique_id=1961655429]
+shape = SubResource("RectangleShape2D_qe6hy")
+
+[node name="Block15" type="StaticBody2D" parent="Map" unique_id=320906442]
+position = Vector2(1152, 2752)
+script = ExtResource("3_1ybj5")
+size = Vector2(2304, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block15" unique_id=862623380]
+shape = SubResource("RectangleShape2D_v472h")
+
+[node name="Block16" type="StaticBody2D" parent="Map" unique_id=768947612]
+position = Vector2(1824, 640)
+script = ExtResource("3_1ybj5")
+kind = 4
+size = Vector2(832, 128)
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block16" unique_id=918959149]
+shape = SubResource("RectangleShape2D_d2pem")
+
+[node name="Block17" type="StaticBody2D" parent="Map" unique_id=1080673962]
+position = Vector2(1024, 2656)
+script = ExtResource("3_1ybj5")
+kind = 5
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block17" unique_id=1785606504]
+shape = SubResource("RectangleShape2D_q8o3p")
+
+[node name="Block18" type="StaticBody2D" parent="Map" unique_id=1850289402]
+position = Vector2(1664, 2656)
+script = ExtResource("3_1ybj5")
+kind = 5
+theme = "snow"
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Block18" unique_id=569809408]
+shape = SubResource("RectangleShape2D_0nafs")
+
+[node name="NoSlingZone1" type="Area2D" parent="Map" unique_id=54368574]
+position = Vector2(1280, 1632)
+script = ExtResource("4_jm6se")
+label = "no farting"
+size = Vector2(1152, 960)
+
+[node name="Lamp1" type="Node2D" parent="Map" unique_id=887464494]
+position = Vector2(416, 224)
+script = ExtResource("5_6ppq3")
+colour = Color(1, 0.95, 0.75, 1)
+
+[node name="Lamp2" type="Node2D" parent="Map" unique_id=1248730920]
+position = Vector2(1184, 224)
+script = ExtResource("5_6ppq3")
+colour = Color(1, 0.95, 0.75, 1)
+
+[node name="Lamp3" type="Node2D" parent="Map" unique_id=2010204679]
+position = Vector2(1952, 224)
+script = ExtResource("5_6ppq3")
+colour = Color(1, 0.95, 0.75, 1)
+
+[node name="Doodle1" type="Node2D" parent="Map" unique_id=1662635387]
+z_index = -1
+position = Vector2(1824, 288)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 88
+
+[node name="Pickup1" type="Area2D" parent="Map" unique_id=40624330]
+position = Vector2(1952, 800)
+script = ExtResource("7_6r4cw")
+icon = "cheese"
+
+[node name="Sign1" type="Node2D" parent="Map" unique_id=1658183179]
+z_index = 5
+position = Vector2(1514, 834)
+script = ExtResource("8_wro6j")
+text = "shoot the tnt roof, then fart up through the hole (or is there a faster way? mmmm..)"
+
+[node name="Doodle2" type="Node2D" parent="Map" unique_id=659832336]
+z_index = -1
+position = Vector2(2080, 864)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 109
+
+[node name="Pickup2" type="Area2D" parent="Map" unique_id=1215784323]
+position = Vector2(928, 992)
+script = ExtResource("7_6r4cw")
+icon = "cheese"
+
+[node name="Pickup3" type="Area2D" parent="Map" unique_id=100618345]
+position = Vector2(1504, 1056)
+script = ExtResource("7_6r4cw")
+kind = 1
+icon = "cheese"
+
+[node name="Sign2" type="Node2D" parent="Map" unique_id=1509882817]
+z_index = 5
+position = Vector2(895, 1224)
+script = ExtResource("8_wro6j")
+text = "red zone: not farting or slinging!"
+
+[node name="Doodle3" type="Node2D" parent="Map" unique_id=427423193]
+z_index = -1
+position = Vector2(416, 1696)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 44
+
+[node name="Doodle4" type="Node2D" parent="Map" unique_id=75420391]
+z_index = -1
+position = Vector2(1568, 2144)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 105
+
+[node name="Doodle5" type="Node2D" parent="Map" unique_id=621187262]
+z_index = -1
+position = Vector2(1952, 2144)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 123
+
+[node name="Pickup4" type="Area2D" parent="Map" unique_id=920992844]
+position = Vector2(288, 2272)
+script = ExtResource("7_6r4cw")
+icon = "cheese"
+
+[node name="Pickup5" type="Area2D" parent="Map" unique_id=1532036471]
+position = Vector2(608, 2336)
+script = ExtResource("7_6r4cw")
+icon = "cheese"
+
+[node name="Sign3" type="Node2D" parent="Map" unique_id=816241571]
+z_index = 5
+position = Vector2(425, 2553)
+script = ExtResource("8_wro6j")
+text = "hold space to keep fartmaxxing"
+
+[node name="Doodle6" type="Node2D" parent="Map" unique_id=1519029733]
+z_index = -1
+position = Vector2(608, 2592)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 67
+
+[node name="Doodle7" type="Node2D" parent="Map" unique_id=901410974]
+z_index = -1
+position = Vector2(1376, 2592)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 103
+
+[node name="Doodle8" type="Node2D" parent="Map" unique_id=1385246194]
+z_index = -1
+position = Vector2(1961, 2611)
+script = ExtResource("6_xeobf")
+theme = "snow"
+pick = 133
+
+[node name="Target" type="Area2D" parent="." unique_id=1158181949]
+position = Vector2(1952, 260)
+script = ExtResource("4")
+radius = 44.0
+picture = ExtResource("6")
+picture_height = 120.0
+
+[node name="Shooter" parent="." unique_id=1972928147 instance=ExtResource("3")]
+position = Vector2(224, 2606)
+
+[node name="Rig" parent="Shooter" index="0"]
+look = 3
+
+[node name="Cam" type="Camera2D" parent="." unique_id=1353068346]
+script = ExtResource("5")
+
+[editable path="Shooter"]
