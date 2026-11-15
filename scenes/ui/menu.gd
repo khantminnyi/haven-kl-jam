@@ -8,7 +8,7 @@ func _ready() -> void:
 	# splash from text file
 	var lines = FileAccess.get_file_as_string("res://scenes/ui/splash.txt").split("\n", false)
 	if not lines.is_empty():
-		$Heading/Splash.text = lines.pick_random()
+		$Heading/Splash.text = lines[randi() % lines.size()]
 
 	Engine.time_scale = 1.0
 	Sfx.play_music("res://audio/music/main_menu_theme.mp3")

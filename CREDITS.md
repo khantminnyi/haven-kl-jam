@@ -1,14 +1,10 @@
-# people + borrowed stuff
+# credits
 
-le ragdoll galore: zee, dan, khon. music by jerrick.
+- le ragdoll galore: zee, dan, khon. music: jerrick.
+- sounds: rubberduck's 100 CC0 SFX, CC0, from OpenGameArt (https://opengameart.org).
+- toy soldiers: team-supplied/edited sheets; original photo source still unconfirmed.
+- mama coco + dog: Pixar's Coco, edited by the team; characters aren't ours.
+- mission passed: Rockstar / GTA. victory royale: Epic / Fortnite. borrowed banners, not original art or licensed by the joke.
+- engine: Godot, MIT. art tools include Pixelorama.
 
-sound effects: rubberduck's "100 CC0 SFX", CC0, from OpenGameArt (https://opengameart.org).
-files are in `audio/sfx100/`.
-
-toy soldiers: sprite sheets supplied/edited by the team. original source photo still needs confirming.
-mama coco + dog: Pixar's Coco, edited by the team. characters aren't ours.
-mission passed banner: Rockstar / GTA. victory royale banner: Epic / Fortnite.
-those banners aren't ours either; using them as jokes doesn't give us a licence.
-
-engine: Godot (MIT). tools used include Pixelorama and butler.
-menu credits live in `scenes/ui/menu.gd`, keep those in sync if assets change.
+menu credits are in scenes/ui/menu.tscn.
